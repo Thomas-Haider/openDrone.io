@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputScript library="primefaces" firstName="jquery/jquery.js" target="head" />
+</h:head>
+
+<f:view>
+    <h:body>
+        <p:dataTable id="carsTable" var="car" value="#{CarBean.cars.car}">
+            <f:facet name="header">
+                Customers
+            </f:facet>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{car.idCar}" width="100"/>
+            </p:column>
+
+            <p:column headerText="Name">
+                <h:outputText value="#{car.name}" width="200"/>
+            </p:column>
+
+            <p:column headerText="Type">
+                <h:outputText value="#{car.typ}" width="200"/>
+            </p:column>
+
+            <p:column headerText="Add">
+                <p:commandButton value="Add Car" action="addCar"/>
+            </p:column>
+
+            <p:column headerText="Car Telemetry">
+                <p:button value="Car Telemetry" style="margin-left:20px;" outcome="telemetry">
+                    <f:param name="id" value="#{car.idCar}"/>
+                </p:button>
+            </p:column>
+
+        </p:dataTable>
+        <h:form></h:form>
+    </h:body>
+</f:view>
+</html>

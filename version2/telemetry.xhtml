@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core" xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputScript library="primefaces" name="jquery/jquery.js" target="head" />
+</h:head>
+
+<f:view>
+    <h:body>
+        <p:commandButton value="Back to cars" action="back"/>
+        <br/>
+
+        <p:dataTable id="telemetryTable" var="data" value="#{telemetryView.telemetryDatas.telemetryData}">
+            <f:facet name="header">
+                Telemetry
+            </f:facet>
+
+            <p:column headerText="Id">
+                <h:outputText value="#{data.idTelemetryData}" width="100"/>
+            </p:column>
+
+            <p:column headerText="Latitude">
+                <h:outputText value="#{data.latitude}" width="200"/>
+            </p:column>
+
+            <p:column headerText="Longitude">
+                <h:outputText value="#{data.longitude}" width="200"/>
+            </p:column>
+
+            <p:column headerText="Capacity">
+                <h:outputText value="#{data.capacity}" width="200"/>
+            </p:column>
+
+            <p:column headerText="Speed">
+                <h:outputText value="#{data.speed}" width="200"/>
+            </p:column>
+        </p:dataTable>
+        <br></br>
+        <p:button value="add Telemetry" style="margin-left:20px;" outcome="addTelemetry">
+            <f:param name="id" value="#{telemetryView.id}"/>
+        </p:button>
+        <h:form></h:form>
+    </h:body>
+</f:view>
+</html>
