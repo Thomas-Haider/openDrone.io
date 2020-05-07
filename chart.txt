@@ -1,0 +1,10 @@
+public static <T> void marshall(String pathname, T myClass) {
+    try {
+        File file = new File(pathname);
+        JAXBContext jaxbContext = JAXBContext.newInstance(myClass.getClass());
+        Marshaller marshaller= jaxbContext.createMarshaller();
+        marshaller.marshal(myClass,file);
+    } catch (JAXBException e) {
+        e.printStackTrace();
+    }
+}

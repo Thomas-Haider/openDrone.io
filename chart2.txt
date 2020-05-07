@@ -1,0 +1,5 @@
+            <p:rowExpansion>
+                <p:panelGrid columns="2" columnClasses="label,value" style="width:700px;height: 600px;">
+                    <p:chart type="line" model="#{chartBean.getPriceChart(product)}" style="height:300px;"/>
+                </p:panelGrid>
+            </p:rowExpansion>
